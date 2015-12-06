@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $content = $request->getContent();
         //var_dump($content);
         return new JsonResponse([
-            'hellp' => 'world!'
+            'score' => 50
         ]);
     }
     
