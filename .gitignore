@@ -1,5 +1,5 @@
 /app/config/parameters.yml
-/bin/
+/app/bootstrap.php.cache
 /build/
 /composer.phar
 /vendor/
@@ -9,4 +9,5 @@
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 /phpunit.xml
-/nbproject
+/nbproject/
+/.idea/
