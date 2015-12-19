@@ -16,4 +16,14 @@ class RecordRepository extends \Doctrine\ORM\EntityRepository
             ->orderBy('r.score', 'DESC');
         return $qb->getQuery()->getArrayResult();
     }
+
+    public function getMyFirst10($username){
+        $qb = $this->createQueryBuilder('r')
+            ->join('AppBundle:User', 'u', 'WITH', 'u.id = r.userId')
+            ->where('u.username = :username')
+            ->setParameter('username', $username)
+            ->setMaxResults(10)
+            ->orderBy('r.score', 'DESC');
+        return$qb->getQuery()->getArrayResult();
+    }
 }

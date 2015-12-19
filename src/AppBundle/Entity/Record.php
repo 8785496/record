@@ -28,6 +28,12 @@ class Record
      */
     private $score;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="user_id", type="integer")
+     */
+    private $userId;
 
     /**
      * Get id
@@ -62,5 +68,28 @@ class Record
     {
         return $this->score;
     }
-}
 
+    /**
+     * Set userId
+     *
+     * @param integer $userId
+     *
+     * @return Record
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return integer
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+}

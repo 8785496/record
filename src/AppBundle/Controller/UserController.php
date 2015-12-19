@@ -12,7 +12,7 @@ use AppBundle\Entity\User;
 class UserController extends Controller
 {
     /**
-     * @Route("/user/", name="createUser")
+     * @Route("/user", name="createUser")
      * @Method("POST")
      */
     public function createUserAction(Request $request)
@@ -45,7 +45,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/anonymous/", name="createUserAnonymous")
+     * @Route("/user/anonymous", name="createUserAnonymous")
      * @Method("POST")
      */
     public function createUserAnonymous()
