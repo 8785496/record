@@ -3,7 +3,7 @@
 /build/
 /composer.phar
 /vendor/
-/web/bundles/
+/bundles/
 /var/
 !var/cache/.gitkeep
 !var/logs/.gitkeep
@@ -11,3 +11,4 @@
 /phpunit.xml
 /nbproject/
 /.idea/
+*~

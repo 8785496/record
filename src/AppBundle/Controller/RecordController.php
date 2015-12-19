@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Record;
+use AppBundle\Entity\User;
 
 class RecordController extends Controller
 {
@@ -17,11 +18,10 @@ class RecordController extends Controller
      */
     public function indexAction(Request $request)
     {
-        //$content = $request->getContent();
-        //var_dump($content);
-        return new JsonResponse([
-            'score' => 50
-        ]);
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Record');
+        $records = $repository->getFirst10();
+
+        return new JsonResponse($records);
     }
     
     /**

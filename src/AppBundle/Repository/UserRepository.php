@@ -1,6 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
+
+use AppBundle\Entity\User;
 
 /**
  * UserRepository
@@ -10,4 +12,14 @@ namespace AppBundle\Entity;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    function findOneByUsername($username){
+        return $this->findOneBy([
+            'username' => $username
+        ]);
+    }
+
+    function count(){
+        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)');
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 }

@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class RecordRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getFirst10(){
+        $qb = $this->createQueryBuilder('r')
+            ->setMaxResults(10)
+            ->orderBy('r.score', 'DESC');
+        return $qb->getQuery()->getArrayResult();
+    }
 }
