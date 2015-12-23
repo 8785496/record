@@ -1,74 +1,174 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>German Chernyshov</title>
+    <link href="asset/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="asset/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="asset/application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="asset/js/jquery-1.11.1.min.js"></script>
+    <!---- start-smoth-scrolling---->
+    <script type="text/javascript" src="asset/js/move-top.js"></script>
+    <script type="text/javascript" src="asset/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+            });
+        });
+    </script>
+    <!---End-smoth-scrolling---->
+</head>
+<body>
+<!--start-header-section-->
+<div class="header-section">
+    <div class="continer">
+        <img src="asset/images/p1.jpg" style="border-radius: 50%">
+        <h1><span>G</span>erman <span>Ch</span>ernyshov</h1>
+        <p>Web developer and Mobile developer</p>
+        <a href="#contact" class="scroll top"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+    </div>
+</div>
+<!--end header-section-->
+<!--start-study-section-->
+<div class="study-section">
+    <div class="container">
+        <div class="study-grids">
+            <div class="col-md-6 study-grid">
+                <h3><span>F</span>rameworks</h3>
+                <div class="study1">
+                    <p>Symfony<label>( php )</label></p>
+                    <p>Yii <label>( php )</label></p>
+                    <p>AngularJS <label>( javascript )</label></p>
+                    <p>jQuery <label>( javascript )</label></p>
+                    <p>Spring<label>( Java )</label></p>
+                    <p>Joomla!<label>( php )</label></p>
+                </div>
             </div>
-
-            <div id="status">
-                <p>
-                    <svg id="icon-status" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z" fill="#759E1A"/></svg>
-
-                </p>
+            <div class="col-md-6 study-grid">
+                <h3><span>L</span>anguages</h3>
+                <div class="study1">
+                    <p>Php</p>
+                    <p>Html</p>
+                    <p>Css</p>
+                    <p>Javascript</p>
+                    <p>Java</p>
+                    <p>C++</p>
+                </div>
             </div>
-
-            <div id="next">
-                <h2>What's next?</h2>
-                <p>
-                    <svg id="icon-book" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-12.5 9 64 64" enable-background="new -12.5 9 64 64" xml:space="preserve">
-                        <path fill="#AAA" d="M6.8,40.8c2.4,0.8,4.5-0.7,4.9-2.5c0.2-1.2-0.3-2.1-1.3-3.2l-0.8-0.8c-0.4-0.5-0.6-1.3-0.2-1.9
-                            c0.4-0.5,0.9-0.8,1.8-0.5c1.3,0.4,1.9,1.3,2.9,2.2c-0.4,1.4-0.7,2.9-0.9,4.2l-0.2,1c-0.7,4-1.3,6.2-2.7,7.5
-                            c-0.3,0.3-0.7,0.5-1.3,0.6c-0.3,0-0.4-0.3-0.4-0.3c0-0.3,0.2-0.3,0.3-0.4c0.2-0.1,0.5-0.3,0.4-0.8c0-0.7-0.6-1.3-1.3-1.3
-                            c-0.6,0-1.4,0.6-1.4,1.7s1,1.9,2.4,1.8c0.8,0,2.5-0.3,4.2-2.5c2-2.5,2.5-5.4,2.9-7.4l0.5-2.8c0.3,0,0.5,0.1,0.8,0.1
-                            c2.4,0.1,3.7-1.3,3.7-2.3c0-0.6-0.3-1.2-0.9-1.2c-0.4,0-0.8,0.3-1,0.8c-0.1,0.6,0.8,1.1,0.1,1.5c-0.5,0.3-1.4,0.6-2.7,0.4l0.3-1.3
-                            c0.5-2.6,1-5.7,3.2-5.8c0.2,0,0.8,0,0.8,0.4c0,0.2,0,0.2-0.2,0.5c-0.2,0.3-0.3,0.4-0.2,0.7c0,0.7,0.5,1.1,1.2,1.1
-                            c0.9,0,1.2-1,1.2-1.4c0-1.2-1.2-1.8-2.6-1.8c-1.5,0.1-2.8,0.9-3.7,2.1c-1.1,1.3-1.8,2.9-2.3,4.5c-0.9-0.8-1.6-1.8-3.1-2.3
-                            c-1.1-0.7-2.3-0.5-3.4,0.3c-0.5,0.4-0.8,1-1,1.6c-0.4,1.5,0.4,2.9,0.8,3.4l0.9,1c0.2,0.2,0.6,0.8,0.4,1.5c-0.3,0.8-1.2,1.3-2.1,1
-                            c-0.4-0.2-1-0.5-0.9-0.9c0.1-0.2,0.2-0.3,0.3-0.5s0.1-0.3,0.1-0.3c0.2-0.6-0.1-1.4-0.7-1.6c-0.6-0.2-1.2,0-1.3,0.8
-                            C4.3,38.4,4.7,40,6.8,40.8z M46.1,20.9c0-4.2-3.2-7.5-7.1-7.5h-3.8C34.8,10.8,32.7,9,30.2,9L-2.3,9.1c-2.8,0.1-4.9,2.4-4.9,5.4
-                            L-7,58.6c0,4.8,8.1,13.9,11.6,14.1l34.7-0.1c3.9,0,7-3.4,7-7.6L46.1,20.9z M-0.3,36.4c0-8.6,6.5-15.6,14.5-15.6
-                            c8,0,14.5,7,14.5,15.6S22.1,52,14.2,52C6.1,52-0.3,45-0.3,36.4z M42.1,65.1c0,1.8-1.5,3.1-3.1,3.1H4.6c-0.7,0-3-1.8-4.5-4.4h30.4
-                            c2.8,0,5-2.4,5-5.4V17.9h3.7c1.6,0,2.9,1.4,2.9,3.1V65.1L42.1,65.1z"/>
-                    </svg>
-
-                    Read Symfony documentation to learn
-                    <a href="http://symfony.com/doc/{{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION')[:3] }}/book/page_creation.html">
-                        How to create your first page in Symfony
-                    </a>
-                </p>
-            </div>
-
+            <div class="clearfix"></div>
         </div>
     </div>
-{% endblock %}
+</div>
+<!--end study-section-->
+<!--start-services-section-->
+<div class="service-section" id="service">
+    <div class="container">
 
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
+        <div class="service-grids">
+            <div class="col-md-4 service-grid">
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                <h4>JOOMLA!</h4>
+                <span></span>
+                <p>Интернет-магазин строительных товаров</p>
+                <a href="http://stroygid.hol.es/" style="color: #00CFBD">stroygid.hol.es</a>
+            </div>
+            <div class="col-md-4 service-grid">
+                <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                <h4>ANDROID</h4>
+                <span> </span>
+                <p>Балда - игра человека со смартфоном</p>
+                <a href="/balda" style="color: #00CFBD">Балда</a>
+            </div>
+            <div class="col-md-4 service-grid">
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                <h4>PHP</h4>
+                <span> </span>
+                <p>Сервис для запоминания английских слов</p>
+                <a href="http://subeng.hol.es/" style="color: #00CFBD">subeng.hol.es</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!--end services-section-->
+<!--start-social-section-->
+{#<div class="social-icons">#}
+    {#<h3>Social Network</h3>#}
+    {#<div class="container">#}
+        {#<div class="col-md-3 face">#}
+            {#<p><i class="facebook"> </i> 733k</p>#}
+            {#<h4>facebook likes</h4>#}
+        {#</div>#}
+        {#<div class="col-md-3 face">#}
+            {#<p><i class="twitter"> </i> 620k</p>#}
+            {#<h4>twitter followers</h4>#}
+        {#</div>#}
+        {#<div class="col-md-3 face">#}
+            {#<p><i class="google"> </i> 412k</p>#}
+            {#<h4>google+ followers</h4>#}
+        {#</div>#}
+        {#<div class="col-md-3 face">#}
+            {#<p><i class="beh"> </i> 322k</p>#}
+            {#<h4>behance followers</h4>#}
+        {#</div>#}
+        {#<div class="clearfix"> </div>#}
+    {#</div>#}
+{#</div>#}
+<!--end-social-section-->
+<!--start-contact-section-->
+<div class="contact-section" id="contact">
+    <div class="container">
+        <h3>contact</h3>
+        <div class="contact-details">
+            <form>
+                <div class="col-md-6 contact-left">
+                    <input type="text" class="text" value="Name *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name *';}">
+                    <input type="text" class="text" value="Email *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email *';}">
+                    <input type="text" class="text" value="phone *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone *';}">
+                </div>
+                <div class="col-md-6 contact-right">
+                    <textarea  value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message *</textarea>
+                    <input type="submit" value="Send Message"/>
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--end-contact-section-->
+<!--start-map-section-->
+{#<div class="google-map">#}
+    {#<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114829.39166857985!2d-80.19154352520549!3d25.92148032545394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b2eec0a4b145%3A0x6fb7ea318103f481!2sCollins+Ave%2C+Sunny+Isles+Beach%2C+FL+33160%2C+USA!5e0!3m2!1sen!2sin!4v1436081255308"></iframe>#}
+{#</div>#}
+<!--end-map-section-->
+<!--start-footer-section-->
+<div class="footer-section">
+    <div class="container">
+        <div class="footer-top">
+            <p>&copy; 2015 German Chernyshov | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear'
+                 };
+                 */
 
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        #status a, #next a { display: block; }
+                $().UItoTop({ easingType: 'easeOutQuart' });
 
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
-</style>
-{% endblock %}
+            });
+        </script>
+        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    </div>
+</div>
+<!--end-footer-section-->
+</body>
+</html> 
