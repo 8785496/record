@@ -14,3 +14,7 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+# Twig Configuration
+twig:
+    exception_controller:  AppBundle:Exception:show

@@ -48,7 +48,7 @@ class UserController extends Controller
      * @Route("/user/anonymous", name="createUserAnonymous")
      * @Method("POST")
      */
-    public function createUserAnonymous()
+    public function createUserAnonymousAction()
     {
         $repository = $this->getDoctrine()->getRepository('AppBundle:User');
         $count = $repository->count();
