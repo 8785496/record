@@ -25,3 +25,7 @@ monolog:
             level: debug
         console:
             type:  console
+
+# Twig Configuration
+twig:
+    exception_controller:  AppBundle:Exception:show

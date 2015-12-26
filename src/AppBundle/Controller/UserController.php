@@ -29,7 +29,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
             return new JsonResponse([
-                'status' => 1,
+                'code' => 1,
                 'user' => [
                     'id' => $user->getId(),
                     'username' => $user->getUsername(),
@@ -38,7 +38,7 @@ class UserController extends Controller
             ]);
         } else {
             return new JsonResponse([
-                'status' => 0,
+                'code' => 0,
                 'message' => 'User exists'
             ]);
         }
@@ -61,7 +61,7 @@ class UserController extends Controller
         $em->persist($user);
         $em->flush();
         return new JsonResponse([
-            'status' => 1,
+            'code' => 1,
             'user' => [
                 'id' => $user->getId(),
                 'username' => $user->getUsername(),

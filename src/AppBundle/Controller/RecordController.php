@@ -55,7 +55,7 @@ class RecordController extends Controller
             $em->persist($record);
             $em->flush();
             return new JsonResponse([
-                'status' => 1,
+                'code' => 1,
                 'record' => [
                     'id' => $record->getId(),
                     'score' => $record->getScore(),
@@ -64,7 +64,7 @@ class RecordController extends Controller
             ]);
         } else {
             return new JsonResponse([
-                'status' => 0,
+                'code' => 0,
                 'message' => 'user not valid'
             ]);
         }
