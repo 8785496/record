@@ -20,10 +20,10 @@ class Email
      * @Assert\NotBlank()
      */
     protected $email;
+    protected $phone;
     /**
      * @Assert\NotBlank()
      */
-    protected $phone;
     protected $message;
 
     public function getName()

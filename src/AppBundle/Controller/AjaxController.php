@@ -20,6 +20,7 @@ class AjaxController extends Controller
     public function sendEmailAction(Request $request)
     {
         $data = $request->request->get('form');
+        dump($data);
         $email = new Email();
         $email->setName($data['name']);
         $email->setEmail($data['email']);
@@ -43,7 +44,7 @@ class AjaxController extends Controller
                 ->setSubject('Letter from site')
                 ->setFrom($email->getEmail())
                 ->setTo('german.chernyshov@gmail.com')
-                ->setBody($email->getMessage() . "\ntel." . $email->getPhone());
+                ->setBody($email->getMessage() . "\n\ntel." . $email->getPhone());
             $this->get('mailer')->send($message);
             return new JsonResponse([
                 'code' => 1,
