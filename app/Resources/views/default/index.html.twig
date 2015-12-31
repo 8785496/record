@@ -124,7 +124,7 @@
     <div class="container">
         <h3>contact</h3>
         <div class="contact-details">
-            <form>
+            {#<form>
                 <div class="col-md-6 contact-left">
                     <input type="text" class="text" placeholder="Name *" required>
                     <input type="text" class="text" placeholder="Email *" required>
@@ -135,8 +135,37 @@
                     <input type="submit" value="Send Message"/>
                 </div>
                 <div class="clearfix"> </div>
-            </form>
+            </form>#}
+            {{ form_start(form) }}
+            <div class="col-md-6 contact-left">
+                {{ form_widget(form.name, {'attr': {'placeholder': 'Name *'}}) }}
+                {{ form_widget(form.email, {'attr': {'placeholder': 'Email *'}}) }}
+                {{ form_widget(form.phone, {'attr': {'placeholder': 'Phone'}}) }}
+                <div>{{ form_errors(form) }}</div>
+            </div>
+            <div class="col-md-6 contact-right">
+                {{ form_widget(form.message, {'attr': {'placeholder': 'Message *'}}) }}
+                <input type="submit" value="Send Message"/>
+            </div>
+            {{ form_end(form) }}
         </div>
+        <script>
+            $("form[name='form']").submit(function(event){
+                var d = $("form[name='form']").serialize();
+                $.ajax({
+                    url: "ajax/sendemail",
+                    method: "POST",
+                    data: d
+                }).done(function(data) {
+                    if (data.code == 1) {
+                        alert(1);
+                    } else {
+                        alert(0);
+                    }
+                })
+                event.preventDefault();
+            });
+        </script>
     </div>
 </div>
 <!--end-contact-section-->
