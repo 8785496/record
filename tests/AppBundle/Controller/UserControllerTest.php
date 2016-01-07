@@ -45,4 +45,26 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertEquals(1, $arr['code']);
     }
+
+    public function testExistAnonymous()
+    {
+        $username = 'Ivan1111';
+        $password = 'pass';
+
+        $client = static::createClient();
+        $client->request(
+            'POST',
+            '/user/exist',
+            [],
+            [],
+            ['HTTP_ACCEPT' => 'application/json'],
+            "{\"username\": \"$username\", \"password\": \"$password\"}"
+        );
+        $content = $client->getResponse()->getContent();
+        $arr = json_decode($content, true);
+        //dump($content);
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(1, $arr['code']);
+    }
 }

@@ -69,4 +69,31 @@ class UserController extends Controller
             ]
         ]);
     }
+
+    /**
+     * @Route("/user/exist", name="existUser")
+     * @Method("POST")
+     */
+    public function existUserAction(Request $request)
+    {
+        $content = $request->getContent();
+        $response = json_decode($content, true);
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+        $user = $repository->findOneByUsername($response['username']);
+        if ($user && $user->verifyPassword($response['password'])) {
+            return new JsonResponse([
+                'code' => 1,
+                'user' => [
+                    'id' => $user->getId(),
+                    'username' => $user->getUsername(),
+                    'password' => $user->getPassword()
+                ]
+            ]);
+        } else {
+            return new JsonResponse([
+                'code' => 0,
+                'message' => 'Incorrect login or password'
+            ]);
+        }
+    }
 }

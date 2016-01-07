@@ -122,4 +122,8 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
+
+    function verifyPassword($password) {
+        return $password == $this->password;
+    }
 }

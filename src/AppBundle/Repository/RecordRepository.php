@@ -12,6 +12,8 @@ class RecordRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getFirst10(){
         $qb = $this->createQueryBuilder('r')
+            ->select(['u.username', 'r.score'])
+            ->join('AppBundle:User', 'u', 'WITH', 'u.id = r.userId')
             ->setMaxResults(10)
             ->orderBy('r.score', 'DESC');
         return $qb->getQuery()->getArrayResult();
@@ -19,6 +21,7 @@ class RecordRepository extends \Doctrine\ORM\EntityRepository
 
     public function getMyFirst10($username){
         $qb = $this->createQueryBuilder('r')
+            ->select(['u.username', 'r.score'])
             ->join('AppBundle:User', 'u', 'WITH', 'u.id = r.userId')
             ->where('u.username = :username')
             ->setParameter('username', $username)

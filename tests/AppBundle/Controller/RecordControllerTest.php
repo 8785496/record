@@ -11,6 +11,7 @@ class RecordControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/record');
         $content = $client->getResponse()->getContent();
+
         $arr = json_decode($content, true);
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
@@ -24,6 +25,7 @@ class RecordControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', "/record/$username");
         $content = $client->getResponse()->getContent();
+        dump($content);
         $arr = json_decode($content, true);
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());

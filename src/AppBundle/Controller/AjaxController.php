@@ -20,7 +20,7 @@ class AjaxController extends Controller
     public function sendEmailAction(Request $request)
     {
         $data = $request->request->get('form');
-        dump($data);
+        //dump($data);
         $email = new Email();
         $email->setName($data['name']);
         $email->setEmail($data['email']);
