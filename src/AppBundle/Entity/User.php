@@ -124,6 +124,6 @@ class User implements UserInterface, \Serializable
     }
 
     function verifyPassword($password) {
-        return $password == $this->password;
+        return md5($password) == $this->password;
     }
 }

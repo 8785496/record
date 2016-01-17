@@ -24,7 +24,7 @@ class UserController extends Controller
         if (!$user) {
             $user = new User();
             $user->setUsername($response['username']);
-            $user->setPassword($response['password']);
+            $user->setPassword(md5($response['password']));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -56,7 +56,7 @@ class UserController extends Controller
         $password = chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90));
         $user = new User();
         $user->setUsername($username);
-        $user->setPassword($password);
+        $user->setPassword(md5($password));
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
@@ -65,7 +65,7 @@ class UserController extends Controller
             'user' => [
                 'id' => $user->getId(),
                 'username' => $user->getUsername(),
-                'password' => $user->getPassword()
+                'password' => $password //$user->getPassword()
             ]
         ]);
     }
@@ -86,7 +86,7 @@ class UserController extends Controller
                 'user' => [
                     'id' => $user->getId(),
                     'username' => $user->getUsername(),
-                    'password' => $user->getPassword()
+                    'password' => $response['password'] //$user->getPassword()
                 ]
             ]);
         } else {

@@ -46,9 +46,9 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(1, $arr['code']);
     }
 
-    public function testExistAnonymous()
+    public function testExist()
     {
-        $username = 'Ivan1111';
+        $username = 'Peter';
         $password = 'pass';
 
         $client = static::createClient();

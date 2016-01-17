@@ -47,7 +47,8 @@ class RecordController extends Controller
         $repository = $this->getDoctrine()->getRepository('AppBundle:User');
         $user = $repository->findOneByUsername($response['user']['username']);
 
-        if ($user != null && $user->getPassword() == $response['user']['password']) {
+        //if ($user != null && $user->getPassword() == $response['user']['password']) {
+        if ($user != null && $user->verifyPassword($response['user']['password'])) {
             $record = new Record();
             $record->setScore($response['score']);
             $record->setUserId($user->getId());
