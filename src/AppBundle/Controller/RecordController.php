@@ -49,6 +49,20 @@ class RecordController extends Controller
 
         //if ($user != null && $user->getPassword() == $response['user']['password']) {
         if ($user != null && $user->verifyPassword($response['user']['password'])) {
+
+            // если у юзера сохранен рекорд >= score
+            $repRecord = $this->getDoctrine()->getRepository('AppBundle:Record');
+            //dump($repRecord);
+            $maxScore = $repRecord->getMaxRecord($user->getId());
+            dump($maxScore);
+            if ($maxScore >= $response['score']) {
+                return new JsonResponse([
+                    'code' => 2,
+                    'message' => 'score less max score',
+                    'score' => $maxScore
+                ]);
+            }
+
             $record = new Record();
             $record->setScore($response['score']);
             $record->setUserId($user->getId());
@@ -70,7 +84,6 @@ class RecordController extends Controller
             ]);
         }
     }
-
 
     /**
      * @Route("/record/anonymous", name="createRecordAnonymously")

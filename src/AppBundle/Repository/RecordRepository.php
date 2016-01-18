@@ -27,6 +27,14 @@ class RecordRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('username', $username)
             ->setMaxResults(10)
             ->orderBy('r.score', 'DESC');
-        return$qb->getQuery()->getArrayResult();
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function getMaxRecord($userId){
+        $qb = $this->createQueryBuilder('r')
+            ->select('MAX(r.score)')
+            ->where('r.userId = :userId')
+            ->setParameter('userId', $userId);
+        return $qb->getQuery()->getSingleScalarResult();
     }
 }
