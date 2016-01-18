@@ -70,4 +70,53 @@ class RecordController extends Controller
             ]);
         }
     }
+
+
+    /**
+     * @Route("/record/anonymous", name="createRecordAnonymously")
+     * @Method("POST")
+     */
+    public function createAnonymouslyAction(Request $request)
+    {
+        // user anonymous
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+        $count = $repository->count();
+        $username = 'Player' . dechex($count);
+        $password = chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90));
+        $user = new User();
+        $user->setUsername($username);
+        $user->setPassword(md5($password));
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        // record
+        $content = $request->getContent();
+        $response = json_decode($content, true);
+        if ($user != null) {
+            $record = new Record();
+            $record->setScore($response['score']);
+            $record->setUserId($user->getId());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($record);
+            $em->flush();
+            return new JsonResponse([
+                'code' => 1,
+                'record' => [
+                    'id' => $record->getId(),
+                    'score' => $record->getScore(),
+                    'userId' => $record->getUserId()
+                ],
+                'user' => [
+                    'username' => $user->getUsername(),
+                    'password' => $password
+                ]
+            ]);
+        } else {
+            return new JsonResponse([
+                'code' => 0,
+                'message' => 'record not save'
+            ]);
+        }
+    }
 }
